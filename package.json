@@ -1,0 +1,43 @@
+{
+  "name": "cube-music",
+  "version": "1.0.0",
+  "description": "Music App",
+  "engines": {
+    "node": "14.x"
+  },
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anudeep-m/Cube-music.git"
+  },
+  "keywords": [
+    "Cube-Music"
+  ],
+  "author": "Anudeep Muktinutalapati",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anudeep-m/Cube-music/issues"
+  },
+  "homepage": "https://github.com/anudeep-m/Cube-music#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.4",
+    "multer": "^1.4.3"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.1",
+    "nodemon": "^2.0.12"
+  }
+}
