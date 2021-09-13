@@ -14,9 +14,9 @@ const storage = multer.diskStorage({
     const songName = req.params.songName
 
     if (!songName) {
-      cb(null, `${movieTitle.toLowerCase()}${path.extname(file.originalname)}`)
+      cb(null, `${movieTitle}${path.extname(file.originalname)}`)
     } else {
-      cb(null, `${songName.toLowerCase()}${path.extname(file.originalname)}`)
+      cb(null, `${songName}${path.extname(file.originalname)}`)
     }
   },
 })
@@ -69,7 +69,9 @@ router.post(
   '/:movieTitle/moviePoster',
   uploadMoviePoster.single('image'),
   (req, res) => {
-    res.send(`/${req.file.path}`)
+    let filePath1 = req.file.path
+    filePath2 = filePath1.slice(16)
+    res.send(`/${filePath1}`)
   }
 )
 
@@ -77,9 +79,9 @@ router.post(
   '/:movieTitle/:songName/songFile',
   uploadSongFile.single('audio/mp3'),
   (req, res) => {
-    let filePath = req.file.path
-    filePath = filePath.slice(15)
-    res.send(`/${filePath}`)
+    let filePath2 = req.file.path
+    filePath2 = filePath2.slice(16)
+    res.send(`/${filePath2}`)
   }
 )
 
