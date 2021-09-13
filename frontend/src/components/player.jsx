@@ -193,16 +193,16 @@ const Player = ({ currentSongIDX, setCurrentSongIDX, nextSongIDX }) => {
                 <i className='fas fa-forward'></i>
               </div>
 
-              <div
-                className='btn p-0 m-0 mx-2'
-                onClick={() => setReplay(!replay)}
-              >
-                {replay ? (
-                  <Image src='/pictures/repeat1.png' />
-                ) : (
-                  <Image src='/pictures/repeat.png' />
-                )}
-              </div>
+//               <div
+//                 className='btn p-0 m-0 mx-2'
+//                 onClick={() => setReplay(!replay)}
+//               >
+//                 {replay ? (
+//                   <Image src='/pictures/repeat1.png' />
+//                 ) : (
+//                   <Image src='/pictures/repeat.png' />
+//                 )}
+//               </div>
             </Col>
             {/* ****************Player Controls [Back, Pause/Play, Next]********************* */}
           </Row>
