@@ -27,28 +27,52 @@ function App() {
       <Header />
       <main className='py-3'>
         <Container>
-          <Route path='/' component={HomeScreen} exact />
-          <Route path='/album/:movieTitle' component={AlbumScreen} exact />
+          <Route
+            path='/'
+            component={userInfo ? HomeScreen : LoginScreen}
+            exact
+          />
+          <Route
+            path='/album/:movieTitle'
+            component={userInfo ? AlbumScreen : LoginScreen}
+            exact
+          />
           <Route
             path='/album/:movieTitle/:songName'
-            component={SongScreen}
+            component={userInfo ? SongScreen : LoginScreen}
             exact
           />
           <Route path='/login' component={LoginScreen} />
           <Route path='/register' component={RegisterScreen} />
           <Route path='/account' component={AccountScreen} />
-          <Route path='/queue' component={QueueScreen} />
-          <Route path='/favourites' component={FavouritesScreen} />
-          <Route path='/playlists' component={PlayListsScreen} exact />
           <Route
-            path='/playlists/:playListTitle'
-            component={PlayListScreen}
+            path='/queue'
+            component={userInfo ? QueueScreen : LoginScreen}
+          />
+
+          <Route
+            path='/favourites'
+            component={userInfo ? FavouritesScreen : LoginScreen}
+          />
+          <Route
+            path='/playlists'
+            component={userInfo ? PlayListsScreen : LoginScreen}
             exact
           />
-          <Route path='/admin/albumslist' component={AlbumListScreen} />
+          <Route
+            path='/playlists/:playListTitle'
+            component={userInfo ? PlayListScreen : LoginScreen}
+            exact
+          />
+
+          <Route
+            path='/admin/albumslist'
+            component={userInfo ? AlbumListScreen : LoginScreen}
+          />
+
           <Route
             path='/admin/album/:movieId/edit'
-            component={AlbumEditScreen}
+            component={userInfo ? AlbumEditScreen : LoginScreen}
             exact
           />
           <Route

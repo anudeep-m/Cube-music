@@ -18,7 +18,7 @@ const Player = ({ currentSongIDX, setCurrentSongIDX, nextSongIDX }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [duration, setDuration] = useState(0)
   // const [currentTime, setCurrentTime] = useState(0)
-  const [replay, setReplay] = useState(false)
+  // const [replay, setReplay] = useState(false)
 
   useEffect(() => {
     const seconds = Math.floor(audioElement.current.duration)
@@ -127,7 +127,7 @@ const Player = ({ currentSongIDX, setCurrentSongIDX, nextSongIDX }) => {
       {/* ****************Currrent Song Details********************* */}
 
       <>
-        <Col sm='1'>
+        <Col xs='2' lg='1'>
           {' '}
           <Image
             src={queueList[currentSongIDX].moviePoster}
@@ -135,7 +135,7 @@ const Player = ({ currentSongIDX, setCurrentSongIDX, nextSongIDX }) => {
             height='60'
           />{' '}
         </Col>
-        <Col sm='3' className='p-0 m-0'>
+        <Col xs='3' lg='3' className='p-0 m-0'>
           <Col
             style={{
               fontSize: '1.2rem',
@@ -161,11 +161,11 @@ const Player = ({ currentSongIDX, setCurrentSongIDX, nextSongIDX }) => {
         </Col>
         {/* ****************Currrent Song Details********************* */}
 
-        <Col className='mx-2' sm='7'>
+        <Col className='mx-2' xs='7' lg='7'>
           <Row className='d-flex justify-content-center'>
             {/* ****************Player Controls [Back, Pause/Play, Next]********************* */}
 
-            <Col className='text-center py-1 px-0 ' sm='4'>
+            <Col className='text-center py-1 px-0 ' xs='5' lg='4'>
               <div className='btn p-1 m-0 mx-2'>
                 <i
                   className='fas fa-backward'
@@ -199,7 +199,7 @@ const Player = ({ currentSongIDX, setCurrentSongIDX, nextSongIDX }) => {
           <Row className='text-center'>
             <Col>
               <Row>
-                {/* <Col sm='1'>{timecalculator(currentTime)}</Col>
+                {/* <Col xs='1' lg='1'>{timecalculator(currentTime)}</Col>
                 <Col className='mx-1'>
                   <input
                     type='range'
@@ -222,15 +222,15 @@ const Player = ({ currentSongIDX, setCurrentSongIDX, nextSongIDX }) => {
         </Col>
 
         {/* **********************************Next Song & Queue*************************** */}
-        <Col sm='2'>
+        <Col xs='2' lg='2'>
           <Row>
-            <Col sm='9'>
+            <Col xs='9' lg='9'>
               <Col>Next up:</Col>
               <Col style={{ fontSize: '0.8rem', color: '#6b56e6' }}>
                 {nextSongIDX ? queueList[nextSongIDX].songName : 'No songs'}
               </Col>
             </Col>
-            <Col sm='2'>
+            <Col xs='2' lg='2'>
               <QueueUpButton />
             </Col>
           </Row>
