@@ -1,2 +1,17 @@
-# Cube-music
- Music App
+# Cube Music
+
+https://cube-music.herokuapp.com
+
+Cube Music is a Music Streaming App built using MERN Stack
+ 
+Tech Stack:
+
+Frontend - ReactJS,
+
+Styling - React Bootsrtrap,
+
+State Management -Redux,
+
+Backend - NodeJS, ExpressJS,
+
+Database - MongoDB
