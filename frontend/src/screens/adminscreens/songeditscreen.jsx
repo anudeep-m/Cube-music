@@ -73,7 +73,7 @@ const SongEditScreen = ({ match }) => {
       const sn = addUnderScore(songName)
 
       const { data } = await axios.post(
-        `${REACT_APP_SERVER_URL}/api/upload/${mt}/${sn}/songFile`,
+        `${process.env.REACT_APP_SERVER_URL}/api/upload/${mt}/${sn}/songFile`,
         formData,
         config
       )

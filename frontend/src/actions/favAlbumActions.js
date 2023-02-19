@@ -12,7 +12,7 @@ import {
 } from '../constants/constants'
 
 const addToFav = (movieTitle, songName) => async (dispatch, getState) => {
-  const { data } = await axios.get(`${REACT_APP_SERVER_URL}/api/albums/${movieTitle}/${songName}`)
+  const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/albums/${movieTitle}/${songName}`)
 
   const favSong = {
     movieTitle: data.movieTitle,
@@ -36,7 +36,7 @@ const addToFav = (movieTitle, songName) => async (dispatch, getState) => {
       },
     }
 
-    await axios.put(`${REACT_APP_SERVER_URL}/api/favourites`, favSong, config)
+    await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/favourites`, favSong, config)
 
     dispatch({ type: FAV_ALBUM_ADD_SUCCESS })
   } catch (error) {
@@ -65,7 +65,7 @@ const removefromFav = (songName) => async (dispatch, getState) => {
       },
     }
 
-    await axios.delete(`${REACT_APP_SERVER_URL}/api/favourites/${songName}`, config)
+    await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/favourites/${songName}`, config)
 
     dispatch({ type: FAV_ALBUM_REMOVE_SUCCESS })
   } catch (error) {
@@ -94,7 +94,7 @@ const detailsFavAlbum = () => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.get(`${REACT_APP_SERVER_URL}/api/favourites`, config)
+    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/favourites`, config)
 
     dispatch({ type: FAV_ALBUM_DETAILS_SUCCESS, payload: data })
   } catch (error) {
