@@ -6,7 +6,7 @@ import {
 } from '../constants/constants'
 
 const addSongToQueue = (movieTitle, songName) => async (dispatch, getState) => {
-  const { data } = await axios.get(`/api/albums/${movieTitle}/${songName}`)
+  const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/albums/${movieTitle}/${songName}`)
 
   const song = {
     movieTitle: data.movieTitle,
@@ -36,7 +36,7 @@ const removeSongFromQueue = (songName) => async (dispatch, getState) => {
 
 const addSongToQueueImmediately =
   (movieTitle, songName) => async (dispatch, getState) => {
-    const { data } = await axios.get(`/api/albums/${movieTitle}/${songName}`)
+    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/albums/${movieTitle}/${songName}`)
 
     const song = {
       movieTitle: data.movieTitle,

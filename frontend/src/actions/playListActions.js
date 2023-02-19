@@ -36,7 +36,7 @@ const addPLtoPLA = (playListTitle) => async (dispatch, getState) => {
       },
     }
 
-    await axios.put(`/api/playlists`, playList, config)
+    await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/playlists`, playList, config)
 
     dispatch({ type: PL_ALBUM_ADD_SUCCESS })
   } catch (error) {
@@ -65,7 +65,7 @@ const removePLfromPLA = (playListTitle) => async (dispatch, getState) => {
       },
     }
 
-    await axios.delete(`/api/playlists/${playListTitle}`, config)
+    await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/playlists/${playListTitle}`, config)
 
     dispatch({ type: PL_ALBUM_REMOVE_SUCCESS })
   } catch (error) {
@@ -81,7 +81,7 @@ const removePLfromPLA = (playListTitle) => async (dispatch, getState) => {
 
 const addSongToPL =
   (movieTitle, songName, playListTitle) => async (dispatch, getState) => {
-    const { data } = await axios.get(`/api/albums/${movieTitle}/${songName}`)
+    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/albums/${movieTitle}/${songName}`)
 
     const plSong = {
       movieTitle: data.movieTitle,
@@ -105,7 +105,7 @@ const addSongToPL =
         },
       }
 
-      await axios.put(`/api/playlists/${playListTitle}`, plSong, config)
+      await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/playlists/${playListTitle}`, plSong, config)
 
       dispatch({ type: PL_SONG_ADD_SUCCESS })
     } catch (error) {
@@ -135,7 +135,7 @@ const removeSongFromPL =
         },
       }
 
-      await axios.delete(`/api/playlists/${playListTitle}/${songName}`, config)
+      await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/playlists/${playListTitle}/${songName}`, config)
 
       dispatch({ type: PL_SONG_REMOVE_SUCCESS })
     } catch (error) {
@@ -164,7 +164,7 @@ const listPlayLists = () => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.get(`/api/playlists`, config)
+    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/playlists`, config)
 
     dispatch({ type: PL_ALBUM_LIST_SUCCESS, payload: data })
   } catch (error) {
@@ -193,7 +193,7 @@ const detailsPlayList = (playListTitle) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.get(`/api/playlists/${playListTitle}`, config)
+    const { data } = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/playlists/${playListTitle}`, config)
 
     dispatch({ type: PL_ALBUM_DETAILS_SUCCESS, payload: data })
   } catch (error) {

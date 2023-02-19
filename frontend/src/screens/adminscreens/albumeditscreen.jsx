@@ -67,7 +67,7 @@ const AlbumEditScreen = ({ history, match }) => {
       }
       const mt = addUnderScore(movieTitle)
       const { data } = await axios.post(
-        `/api/upload/${mt}/moviePoster`,
+        `${process.env.REACT_APP_SERVER_URL}/api/upload/${mt}/moviePoster`,
         formData,
         config
       )
