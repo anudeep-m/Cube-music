@@ -1,6 +1,6 @@
 # Cube Music
 
-https://cube-music.herokuapp.com
+https://cube-music.onrender.com
 
 Cube Music is a Music Streaming App built using MERN Stack
  
