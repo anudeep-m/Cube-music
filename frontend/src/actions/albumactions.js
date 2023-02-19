@@ -39,7 +39,7 @@ const listAlbums = () => async (dispatch) => {
   try {
     dispatch({ type: ALBUM_LIST_REQUEST })
 
-    const { data } = await axios.get(`/api/albums`)
+    const { data } = await axios.get(`${REACT_APP_SERVER_URL}/api/albums`)
 
     dispatch({ type: ALBUM_LIST_SUCCESS, payload: data })
   } catch (error) {
@@ -57,7 +57,7 @@ const detailsAlbum = (movieTitle) => async (dispatch) => {
   try {
     dispatch({ type: ALBUM_DETAILS_REQUEST })
 
-    const { data } = await axios.get(`/api/albums/${movieTitle}`)
+    const { data } = await axios.get(`${REACT_APP_SERVER_URL}/api/albums/${movieTitle}`)
 
     dispatch({ type: ALBUM_DETAILS_SUCCESS, payload: data })
   } catch (error) {
@@ -75,7 +75,7 @@ const detailsSong = (movieTitle, songName) => async (dispatch) => {
   try {
     dispatch({ type: SONG_DETAILS_REQUEST })
 
-    const { data } = await axios.get(`/api/albums/${movieTitle}/${songName}`)
+    const { data } = await axios.get(`${REACT_APP_SERVER_URL}/api/albums/${movieTitle}/${songName}`)
 
     dispatch({ type: SONG_DETAILS_SUCCESS, payload: data })
   } catch (error) {
@@ -105,7 +105,7 @@ const detailsAlbumFA = (movieId) => async (dispatch, getState) => {
     }
 
     const { data } = await axios.get(
-      `/api/albums/admin/movie/${movieId}`,
+      `${REACT_APP_SERVER_URL}/api/albums/admin/movie/${movieId}`,
       config
     )
 
@@ -135,7 +135,7 @@ const albumAdd = () => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.post(`/api/albums/admin`, {}, config)
+    const { data } = await axios.post(`${REACT_APP_SERVER_URL}/api/albums/admin`, {}, config)
 
     dispatch({ type: ALBUM_ADD_SUCCESS, payload: data })
   } catch (error) {
@@ -166,7 +166,7 @@ const albumEdit =
         },
       }
 
-      await axios.put(`/api/albums/admin/movie/${movieId}`, album, config)
+      await axios.put(`${REACT_APP_SERVER_URL}/api/albums/admin/movie/${movieId}`, album, config)
 
       dispatch({ type: ALBUM_EDIT_SUCCESS })
     } catch (error) {
@@ -194,7 +194,7 @@ const albumDelete = (movieId) => async (dispatch, getState) => {
       },
     }
 
-    await axios.delete(`/api/albums/admin/movie/${movieId}`, config)
+    await axios.delete(`${REACT_APP_SERVER_URL}/api/albums/admin/movie/${movieId}`, config)
 
     dispatch({ type: ALBUM_DELETE_SUCCESS })
   } catch (error) {
@@ -223,7 +223,7 @@ const detailsSongFA = (movieId, songId) => async (dispatch, getState) => {
     }
 
     const { data } = await axios.get(
-      `/api/albums/admin/song/${movieId}/${songId}`,
+      `${REACT_APP_SERVER_URL}/api/albums/admin/song/${movieId}/${songId}`,
       config
     )
 
@@ -254,7 +254,7 @@ const songAdd = (movieId) => async (dispatch, getState) => {
     }
 
     const { data } = await axios.post(
-      `/api/albums/admin/movie/${movieId}`,
+      `${REACT_APP_SERVER_URL}/api/albums/admin/movie/${movieId}`,
       {},
       config
     )
@@ -290,7 +290,7 @@ const songEdit =
       }
 
       const { data } = await axios.put(
-        `/api/albums/admin/song/${movieId}/${songId}`,
+        `${REACT_APP_SERVER_URL}/api/albums/admin/song/${movieId}/${songId}`,
         song,
         config
       )
@@ -321,7 +321,7 @@ const songDelete = (movieId, songId) => async (dispatch, getState) => {
       },
     }
 
-    await axios.delete(`/api/albums/admin/song/${movieId}/${songId}`, config)
+    await axios.delete(`${REACT_APP_SERVER_URL}/api/albums/admin/song/${movieId}/${songId}`, config)
 
     dispatch({ type: SONG_DELETE_SUCCESS })
   } catch (error) {

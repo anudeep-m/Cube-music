@@ -27,7 +27,7 @@ export const loginUser = (email, password) => async (dispatch) => {
       },
     }
 
-    const { data } = await axios.post(`/api/users/login`, credentials, config)
+    const { data } = await axios.post(`${REACT_APP_SERVER_URL}/api/users/login`, credentials, config)
 
     dispatch({ type: USER_LOGIN_SUCCESS, payload: data })
 
@@ -62,7 +62,7 @@ export const registerUser =
         },
       }
 
-      const { data } = await axios.post(`/api/users`, credentials, config)
+      const { data } = await axios.post(`${REACT_APP_SERVER_URL}/api/users`, credentials, config)
 
       dispatch({ type: USER_REGISTER_SUCCESS, payload: data })
 
@@ -82,8 +82,8 @@ export const registerUser =
         },
       }
 
-      await axios.post(`/api/favourites`, {}, config2)
-      await axios.post(`/api/playlists`, {}, config2)
+      await axios.post(`${REACT_APP_SERVER_URL}/api/favourites`, {}, config2)
+      await axios.post(`${REACT_APP_SERVER_URL}/api/playlists`, {}, config2)
     } catch (error) {
       dispatch({
         type: USER_REGISTER_FAILED,
@@ -111,7 +111,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.get(`/api/users/${id}`, config)
+    const { data } = await axios.get(`${REACT_APP_SERVER_URL}/api/users/${id}`, config)
 
     dispatch({
       type: USER_DETAILS_SUCCESS,
@@ -149,7 +149,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.put(`/api/users/profile`, user, config)
+    const { data } = await axios.put(`${REACT_APP_SERVER_URL}/api/users/profile`, user, config)
 
     dispatch({
       type: USER_UPDATE_PROFILE_SUCCESS,
