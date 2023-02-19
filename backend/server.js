@@ -20,7 +20,7 @@ app.use(express.json())
 
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://cubemusic.onrender.com", "https://uat-cube-music.onrender.com"],
+    origin: ["http://localhost:3000", "https://cube-music.onrender.com", "https://uat-cube-music.onrender.com"],
     credentials: true,
   })
 );
